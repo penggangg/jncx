@@ -1,0 +1,24 @@
+<!DOCTYPE html>  
+<html>  
+<head lang="en">  
+    <meta charset="UTF-8">  
+    <title>统计在线人数</title>  
+    <script src="http://localhost:3000/socket.io/socket.io.js"></script>  
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>  
+    <script type="text/javascript">  
+      // 创建websocket连接  
+        var socket = io.connect('http://localhost:3000');  
+        // 把信息显示到div上  
+        socket.on('onlinenums', function (data) {  
+                $("#nums").html(data.nums); 
+                
+        });  
+    </script>  
+</head>  
+<body>  
+  
+    当前在线人数:<span style="color: red;" id="nums">0</span>  
+  
+  
+</body>  
+</html>  
